@@ -2,6 +2,8 @@ require 'csv'
 require 'http'
 
 class StreamController < ApplicationController
+  include ActionController::Live
+
   def enumerator
     file_name = "transactions.csv"
     headers["Content-Type"] = "text/plain"
@@ -35,5 +37,14 @@ class StreamController < ApplicationController
         yielder << chunk
       end
     end
+  end
+
+  def early
+    # must include ActionController::Live in the controller
+    response.stream.write 'OK'
+    response.stream.close
+    p 'TO SLEEP'
+    sleep 5
+    p 'SLEPT'
   end
 end

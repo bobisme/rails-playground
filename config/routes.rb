@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get 'stream/enumerator'
   get 'stream/stream'
   get 'stream/proxy'
+  get 'stream/early'
 end
