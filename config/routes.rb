@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'stream/stream'
   get 'stream/proxy'
   get 'stream/early'
+  get 'aws/signed-redirect'
 end
