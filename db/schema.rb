@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226234008) do
+ActiveRecord::Schema.define(version: 20180502234327) do
+
+  create_table "cat_relationships", force: :cascade do |t|
+    t.integer "giver_id"
+    t.integer "taker_id"
+    t.index ["giver_id"], name: "index_cat_relationships_on_giver_id"
+    t.index ["taker_id"], name: "index_cat_relationships_on_taker_id"
+  end
 
   create_table "cat_toys", force: :cascade do |t|
     t.integer  "cat_id"
