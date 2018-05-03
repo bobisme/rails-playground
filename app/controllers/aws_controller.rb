@@ -1,6 +1,3 @@
-require 'csv'
-require 'http'
-
 class AwsController < ApplicationController
   def signed_redirect
     client = Aws::S3::Client.new(region: 'us-east-1')
